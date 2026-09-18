@@ -103,18 +103,17 @@ public class LoopsPractice extends JPanel{
 			
 			pen.drawLine(x1, y1, x2, y2);
 			
-			x1 = (int)(Math.random()*(1000-550+1))+550;
-			x2 = (int)(Math.random()*(1000-550+1))+550;
+			x1 = (int)(Math.random()*(980-550+1))+550;
+			x2 = (int)(Math.random()*(980-550+1))+550;
 			y1 = (int)(Math.random()*(355-10+1))+10;
-			y2 = (int)(Math.random()*(10);			
-
+			y2 = (int)(Math.random()*(355-10+1))+10;
 			
 			cntr++;	
 		
 		
 		}
 		
-	}
+	} //end or random lines
 	
 	
 	/*
@@ -129,6 +128,29 @@ public class LoopsPractice extends JPanel{
 	public void randomSquares(Graphics pen) {
 		pen.drawString("random squares", 30, 390);
 		
+		int x1 = 50;
+		int y1 = 500;
+		int cntr = 0;		
+		
+		while (cntr < 100) {
+			int red = (int)(Math.random()*(255-0+1)) + 0;
+			int green = (int)(Math.random()*(255-0+1)) + 0;
+			int blue = (int)(Math.random()*(255-0+1)) + 0;
+			
+			Color randC = new Color(red, green, blue);
+			pen.setColor(randC);
+			
+			
+			pen.fillRect(x1, y1, 50, 50);
+			
+			x1 = (int)(Math.random()*(430-10+1))+10;
+			y1 = (int)(Math.random()*(660-355+1))+355;
+
+			cntr++; 
+		}
+		
+		
+		
 		
 	}
 	
@@ -141,6 +163,33 @@ public class LoopsPractice extends JPanel{
 	 */
 	public void randomCircles(Graphics pen) {
 		pen.drawString("random circles", 520, 390);
+		
+		int x1 = 700;
+		int y1 = 500;
+		int size1 = 100;
+		
+		int cntr = 0;	
+		
+		while(cntr < 200) {
+			int red = (int)(Math.random()*(255-0+1)) + 0;
+			int green = (int)(Math.random()*(255-0+1)) + 0;
+			int blue = (int)(Math.random()*(255-0+1)) + 0;
+			
+			Color randC = new Color(red, green, blue);
+			pen.setColor(randC);
+		
+			
+			pen.drawOval(x1, y1, size1, size1);
+			
+			
+			size1 = (int)(Math.random()*(200-20+1))+20;
+			x1 = (int)(Math.random()*(800-540+1))+520;
+			y1 = (int)(Math.random()*(510-355+1))+355;
+			
+			
+			
+			cntr++;
+		}		
 		
 		
 	}
