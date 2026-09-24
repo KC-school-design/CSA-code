@@ -64,11 +64,11 @@ public class LoopsPractice extends JPanel{
 		y2 = 10;
 		
 		for (int cntr = 0; cntr < 100; cntr++) {
-			for (cntr = 0; cntr < 100; cntr++) {
 			pen.drawLine(x1, y1, x2, y2);
 			x1 -= 10;
 			y2 += 7;
-			}
+			
+
 		}	
 		}
 				
