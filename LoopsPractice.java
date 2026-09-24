@@ -13,24 +13,83 @@ public class LoopsPractice extends JPanel{
 		
 		//rectangle and quadrant setup
 		pen.drawRect(10, 10, 1000, 700);
-		pen.drawLine(10, 355, 1010, 355);
-		pen.drawLine(505, 10, 505, 710);
+		//pen.drawLine(10, 355, 1010, 355);
+		//pen.drawLine(505, 10, 505, 710);
+		
+		// point a (x1, y 1)
+		// point b (x2, y2) 
+		
+		int x1 = 10; // top-left corner
+		int y1 = 10; // 
+		int x2 = 10; // bottom left corner
+		int y2 = 710;
+		pen.setColor(Color.orange);
+		// for loop that runs 100 times (can vary)
+		for (int cntr = 0; cntr < 100; cntr++) {
+			pen.drawLine(x1, y1, x2, y2);
+			//top point moves to the right each time
+			x1 += 10;
+			// bottom point moves up
+			y2 -= 7;
+		}
+	
+		//reset x1, y1, x2, y2 so the represent the right side vertical lines
+		//reset means "assign" in this context
 		
 		
-		verticalLines(pen);
-		randomLines(pen);
-		randomSquares(pen);
-		randomCircles(pen);
+		x1 = 1010;
+		y1 = 10;
+		x2 = 1010;
+		y2 = 710;
+		for (int cntr = 0; cntr < 100; cntr++) {
+			pen.drawLine(x1, y1, x2, y2);
+			x1 -= 10; // top point moves left this time 
+			y2 -= 7;
+		}
+		
+		x1 = 10;
+		y1 = 710;
+		x2 = 10;
+		y2 = 10;
+		
+		for (int cntr  = 0; cntr < 100; cntr++) {
+			pen.drawLine(x1, y1, x2, y2);
+			x1 += 10;
+			y2 += 7;
+		}
+		
+		x1 = 1010;
+		y1 = 710;
+		x2 = 1010;
+		y2 = 10;
+		
+		for (int cntr = 0; cntr < 100; cntr++) {
+			for (cntr = 0; cntr < 100; cntr++) {
+			pen.drawLine(x1, y1, x2, y2);
+			x1 -= 10;
+			y2 += 7;
+			}
+		}	
+		}
+				
+
 		
 		
 		
+		
+		
+		
+		
+		//verticalLines(pen);
+		//randomLines(pen);
+		//randomSquares(pen);
+		//randomCircles(pen);
 		
 		
 		
 		
 		
 	
-	}
 	
 	/*
 	 * Top-left quadrant
@@ -131,6 +190,7 @@ public class LoopsPractice extends JPanel{
 		int x1 = 50;
 		int y1 = 500;
 		int cntr = 0;		
+		
 		
 		while (cntr < 100) {
 			int red = (int)(Math.random()*(255-0+1)) + 0;
