@@ -44,12 +44,20 @@ public class Dog extends Sprite {
      * - When x is close enough, set retrievedDuck to true and retrieving to
      *   false.
      */
+    
+    
+    
+    
     public void update() {
         if (!retrieving) {
-            return;
-        }
-
+            return;}
+        	
+        
         // Write your Dog movement code here.
+        if (retrieving = true) {
+        	
+        }
+        
     }
 
     public boolean isRetrieving() {
