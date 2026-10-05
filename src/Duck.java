@@ -4,7 +4,7 @@
  * Sprite provides the graphics code. Your job is to make the Duck move,
  * bounce, fall, and reset.
  */
-public class Duck extends Sprite {
+public class Pacman extends Sprite {
     // ===============================
     // STUDENT SETTINGS
     // ===============================
@@ -16,18 +16,18 @@ public class Duck extends Sprite {
     // ===============================
     private int homeX;
     private int homeY;
-    private int fallSpeed = 2;
+    private int fallSpeed = 1;
     private boolean active = false;
     private boolean falling = false;
     private boolean landed = false;
 
-    public Duck() {
+    public Pacman() {
         this(150, 120);
     }
 
-    public Duck(int startX, int startY) {
+    public Pacman(int startX, int startY) {
         // Change duck.gif to your own Halloween or fall image later.
-        super("pacmanmovingleft (2).gif", startX, startY, 64, 64);
+        super("pacmanmovingright.gif", startX, startY, 64, 64);
 
         homeX = startX;
         homeY = startY;
@@ -45,19 +45,30 @@ public class Duck extends Sprite {
 
         if (falling) {
             // STEP 3: Uncomment and complete the falling code.
-        	 
-        	 y = y + fallSpeed;
+        	if ( fallSpeed < 5)
+        	{
+        		changePicture("pacmanshot.png");
+        		
+        	}
+        	y = y + fallSpeed;
              fallSpeed = fallSpeed + 1;
              
              changePicture("deadpacman.png");
              if (y + height >= GameWorld.GROUND_TOP) {
-            	 y = GameWorld.GROUND_TOP + 50;
+            	 y = GameWorld.GROUND_TOP;
             	 // original line:   y = GameWorld.GROUND_TOP - height;
                  landed = true;
              }
 
             return;
         }
+      
+        
+        
+        
+        
+        
+        
 
         // STEP 1: Uncomment these lines to move the Duck.
          x = x + dx;
@@ -70,7 +81,13 @@ public class Duck extends Sprite {
    
          if (x >= (GameWorld.WORLD_WIDTH-50) || x <= 0) {
         	 	dx *= -1;
-    	
+        	 if (x >= GameWorld.WORLD_WIDTH -50) {
+        		 changePicture("pacmanmovingleft (2).gif");
+        	 }
+        	 if (x <= 0) {
+        		 changePicture("pacmanmovingright.gif");
+        	 }
+        	 	
          }
         if ( y >= GameWorld.GROUND_TOP || y <= 0) {
         	 dy *= -1;
