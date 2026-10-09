@@ -35,8 +35,8 @@ public class Frame extends JPanel implements ActionListener {
     public Frame() {
         // STEP 6: Add each Duck to the world after declaring it above.
         world.addDuck(duck1);
-         world.addDuck(duck2);
-         world.addDuck(duck3);
+        world.addDuck(duck2);
+        world.addDuck(duck3);
 
         world.start();
 
@@ -44,8 +44,8 @@ public class Frame extends JPanel implements ActionListener {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent event) {
-                world.handleClick(event.getX(), event.getY());
-                soundbang.play();
+            	soundbang.play();
+                world.handleClick(event.getX(), event.getY());  
             }
         });
 
