@@ -5,7 +5,7 @@ import java.awt.Graphics;
  * TEACHER-PROVIDED VISUAL CLASS.
  * Draws a simple bush using Java shapes, so no extra image is needed.
  */
-public class Bush {
+/*public class Bush {
     private int x;
     private int y;
     private int width;
@@ -27,4 +27,4 @@ public class Bush {
         g.setColor(new Color(71, 150, 48));
         g.fillOval(x + width / 5, y + height / 5, width / 3, height / 2);
     }
-}
+}*/
