@@ -9,5 +9,6 @@ public class Background {
     public void paint(Graphics g) {
         g.setColor(new Color(145, 205, 245));
         g.fillRect(0, 0, GameWorld.WORLD_WIDTH, GameWorld.WORLD_HEIGHT);
+    
     }
 }
