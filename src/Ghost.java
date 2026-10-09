@@ -18,7 +18,7 @@ public class Ghost extends Sprite {
     private boolean retrievedDuck = false;
     Music ghostcatch = new Music("ghostlickinglips2.wav", false);
     public Ghost() {
-        super("ghostlaughing.gif", 40, GameWorld.GROUND_TOP - DOG_HEIGHT +60 ,
+        super("ghostlaughing.gif", 40, GameWorld.GROUND_TOP - DOG_HEIGHT,
                 DOG_WIDTH, DOG_HEIGHT);
 
         homeX = x;
