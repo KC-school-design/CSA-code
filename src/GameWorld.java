@@ -28,6 +28,7 @@ public class GameWorld {
     private int stars = 5;
     private boolean finished = false;
     private boolean won = false;
+    Music ghostlaughing = new Music("ghostlaughing.wav", false);
 
     public GameWorld(Ghost dog) {
         this.dog = dog;
@@ -154,6 +155,7 @@ public class GameWorld {
             if (stars <= 0) {
                 finished = true;
                 won = false;
+                ghostlaughing.play();
             }
         }
     }
