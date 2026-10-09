@@ -29,6 +29,7 @@ public class GameWorld {
     private boolean finished = false;
     private boolean won = false;
     Music ghostlaughing = new Music("ghostlaughing.wav", false);
+    Music Ooffall = new Music("Oof.wav", false);
 
     public GameWorld(Ghost dog) {
         this.dog = dog;
@@ -64,12 +65,21 @@ public class GameWorld {
 
         if (duck1 != null) {
             duck1.update();
+            if (duck1.hasLanded() && duck1.justlandedcount() <= 1) {
+            	Ooffall.play();
+            }
         }
         if (duck2 != null) {
             duck2.update();
+            if (duck2.hasLanded() && duck2.justlandedcount() <= 1) {
+            	Ooffall.play();
+            }
         }
         if (duck3 != null) {
             duck3.update();
+            if (duck3.hasLanded() && duck3.justlandedcount() <= 1) {
+            	Ooffall.play();
+            }
         }
 
         dog.update();
@@ -118,7 +128,7 @@ public class GameWorld {
             g.setFont(new Font("SansSerif", Font.BOLD, 32));
 
             if (won) {
-                g.drawString("You retrieved every duck!", 245, 80);
+                g.drawString("You retrieved every pacman", 245, 80);
             } else {
                 g.drawString("Out of stars!", 350, 80);
             }
@@ -136,17 +146,21 @@ public class GameWorld {
         
         Pacman clickedDuck = null;
         if (duck1 != null && duck1.wasClicked(mouseX, mouseY)) {
+        	duck1.changePicture("pacmanshot.png");
             clickedDuck = duck1;
-         
+
         } else if (duck2 != null && duck2.wasClicked(mouseX, mouseY)) {
+        	duck2.changePicture("pacmanshot.png");
             clickedDuck = duck2;
            
         } else if (duck3 != null && duck3.wasClicked(mouseX, mouseY)) {
+        	duck3.changePicture("pacmanshot.png");
             clickedDuck = duck3;
-         
         }
 
+        
         if (clickedDuck != null) {
+        	clickedDuck.changePicture("pacmanshot.png");
             clickedDuck.startFalling();
             duckToRetrieve = clickedDuck;
         } else {
