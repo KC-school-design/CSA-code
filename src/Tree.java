@@ -4,6 +4,6 @@
  */
 public class Tree extends Sprite {
     public Tree() {
-        super("pacmantree.png", 600, GameWorld.GROUND_TOP-50, 200, 200);
+        super("pacmantree.png", 600, GameWorld.GROUND_TOP-160, 200, 200);
     }
 }
