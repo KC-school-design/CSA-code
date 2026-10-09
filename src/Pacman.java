@@ -20,8 +20,9 @@ public class Pacman extends Sprite {
     private boolean active = false;
     private boolean falling = false;
     private boolean landed = false;
+    private int justlanded = 0;
     Music soundpacman = new Music("pacman3.wav", false);
-    Music fall = new Music("Oof.wav", false);
+    Music Ooffall = new Music("Oof.wav", false);
     public Pacman() {
         this(150, 120);
     }
@@ -44,16 +45,15 @@ public class Pacman extends Sprite {
     	if (!active) {
             return;
         }
+    	
+
     	    	
         if (falling) {
             // STEP 3: Uncomment and complete the falling code.
-        	if ( fallSpeed < 5)
-        	{
-        		changePicture("pacmanshot.png");
-        		
-        	}
+
+        	
         	y = y + fallSpeed;
-             fallSpeed = fallSpeed + 1;
+            fallSpeed = fallSpeed + 1;
              
              
              changePicture("deadpacman.png");
@@ -61,17 +61,13 @@ public class Pacman extends Sprite {
             	 y = GameWorld.GROUND_TOP;
             	 // original line:   y = GameWorld.GROUND_TOP - height;
                  landed = true;
-             
+                 justlanded += 1;
              }
              
-            return;
+             
+           return;
         }
-      
-        
-        
-        
-        
-        
+        else {
         
 
         // STEP 1: Uncomment these lines to move the Duck.
@@ -84,7 +80,7 @@ public class Pacman extends Sprite {
         // Hint: GameWorld.WORLD_WIDTH is the width of the game.
         // Hint: GameWorld.GROUND_TOP is the top of the ground.
    
-         if (x >= (GameWorld.WORLD_WIDTH-50) || x <= 0) {
+        if (x >= (GameWorld.WORLD_WIDTH-50) || x <= 0) {
         	 	dx *= -1;
         	 if (x >= GameWorld.WORLD_WIDTH -50) {
         		 changePicture("pacmanmovingleft (2).gif");
@@ -98,12 +94,11 @@ public class Pacman extends Sprite {
         	 dy *= -1;
          }
     
+
+        } 
     
     
     }
-
-
-    
     
     /**
      * STEP 3: Uncomment the two lines below so a successful click starts the
@@ -111,17 +106,14 @@ public class Pacman extends Sprite {
      */
     public void startFalling() {
         if (active && !falling) {
-             falling = true;
-             fallSpeed = 2;
-             fall.play();
+        	falling = true;
+            fallSpeed = 2;
              
         }
     }
 
     public boolean hasLanded() {
-        return active && landed;
-        
-      
+        return active && landed;    
     }
 
     public boolean isFalling() {
@@ -130,6 +122,11 @@ public class Pacman extends Sprite {
 
     public boolean isActive() {
         return active;
+    }
+    
+    public int justlandedcount() {
+    	
+        return justlanded;
     }
 
     @Override
@@ -141,6 +138,7 @@ public class Pacman extends Sprite {
     public void activate() {
         active = true;
         reset();
+        
         
     }
 
